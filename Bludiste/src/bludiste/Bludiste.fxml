@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="AnchorPane" cacheHint="SPEED" depthTest="DISABLE" minHeight="600.0" minWidth="800.0" onKeyPressed="#KeyPressed" prefHeight="636.0" prefWidth="807.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bludiste.BludisteController">
+   <children>
+      <GridPane cacheHint="SPEED" depthTest="DISABLE" layoutX="104.0" onKeyPressed="#PanelKeyPressed" prefHeight="636.0" prefWidth="703.0" snapToPixel="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints fillHeight="false" maxHeight="23.0" minHeight="23.0" prefHeight="23.0" />
+          <RowConstraints percentHeight="0.0" vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="IVBack" cacheHint="SPEED" depthTest="DISABLE" fitHeight="507.0" fitWidth="552.0" pickOnBounds="true" smooth="false" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+            <Label fx:id="LabelKol" cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" onKeyPressed="#KeyPressed" text="Kolo: " GridPane.halignment="LEFT" GridPane.hgrow="NEVER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelTime" cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" onKeyPressed="#KeyPressed" text="Čas :" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="250.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="LabelCoin" cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="50.0" onKeyPressed="#KeyPressed" text="Mincí:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="100.0" />
+               </GridPane.margin>
+            </Label>
+            <Canvas fx:id="CanRes" cache="true" cacheHint="SPEED" depthTest="DISABLE" height="507.0" layoutX="10.0" layoutY="33.0" width="552.0" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Canvas>
+            <Canvas fx:id="CanWall" cache="true" cacheHint="SPEED" depthTest="DISABLE" focusTraversable="true" height="507.0" width="552.0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Canvas>
+            <Canvas fx:id="CanFront" cache="true" cacheHint="SPEED" depthTest="DISABLE" height="507.0" width="552.0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Canvas>
+            <Canvas fx:id="CanMask" cache="true" cacheHint="SPEED" depthTest="DISABLE" height="507.0" width="552.0" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.rowSpan="2147483647" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Canvas>
+            <Label fx:id="LabelMask" cacheHint="SPEED" focusTraversable="false" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <GridPane.margin>
+                  <Insets left="400.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Label cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="14.0" layoutY="14.0" onKeyPressed="#KeyPressed" prefHeight="17.0" prefWidth="95.0" text="Polí X:Y" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label fx:id="LabelPath" cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="4.0" layoutY="318.0" onKeyPressed="#KeyPressed" prefHeight="106.0" prefWidth="100.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="318.0">
+         <font>
+            <Font size="10.0" />
+         </font></Label>
+      <Label cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="14.0" layoutY="194.0" onKeyPressed="#KeyPressed" prefHeight="17.0" prefWidth="95.0" text="Mezera" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="254.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="14.0" layoutY="44.0" onKeyPressed="#KeyPressed" prefHeight="19.0" prefWidth="95.0" text="Šířka:Výška pole" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="74.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Button fx:id="Generuj" cacheHint="SPEED" cacheShape="false" centerShape="false" depthTest="DISABLE" focusTraversable="false" layoutX="-3.0" layoutY="578.0" mnemonicParsing="false" onAction="#GenerujAction" onKeyPressed="#KeyPressed" prefHeight="62.0" prefWidth="95.0" scaleShape="false" scaleZ="2.0" text="Generuj" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="TFpoleX" cacheHint="SPEED" cacheShape="false" centerShape="false" depthTest="DISABLE" focusTraversable="false" layoutX="2.0" layoutY="39.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="45.0" scaleShape="false" text="0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="44.0" />
+      <TextField fx:id="TFmezera" cacheHint="SPEED" cacheShape="false" centerShape="false" depthTest="DISABLE" focusTraversable="false" layoutX="5.0" layoutY="289.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="45.0" scaleShape="false" text="0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="284.0" />
+      <TextField fx:id="TFvelikostX" cacheHint="SPEED" cacheShape="false" centerShape="false" depthTest="DISABLE" focusTraversable="false" layoutX="4.0" layoutY="72.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="45.0" scaleShape="false" text="0" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="104.0" />
+      <TextField fx:id="TFpoleY" cacheHint="SPEED" cacheShape="false" centerShape="false" depthTest="DISABLE" focusTraversable="false" layoutX="52.0" layoutY="39.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="45.0" scaleShape="false" text="0" AnchorPane.leftAnchor="52.0" AnchorPane.topAnchor="44.0" />
+      <TextField fx:id="TFvelikostY" cacheHint="SPEED" cacheShape="false" centerShape="false" depthTest="DISABLE" focusTraversable="false" layoutX="53.0" layoutY="72.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="45.0" scaleShape="false" text="0" AnchorPane.leftAnchor="54.0" AnchorPane.topAnchor="104.0" />
+      <Label cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="16.0" layoutY="134.0" onKeyPressed="#KeyPressed" prefHeight="17.0" prefWidth="95.0" text="Generace" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="134.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <ComboBox fx:id="CBgenerace" cacheHint="SPEED" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="153.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="95.0" promptText="Spiral" scaleShape="false" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="164.0" />
+      <ComboBox fx:id="CBreseni" cacheHint="SPEED" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="222.0" onKeyPressed="#KeyPressed" prefHeight="25.0" prefWidth="95.0" scaleShape="false" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="224.0" />
+      <Label cacheHint="SPEED" depthTest="DISABLE" focusTraversable="false" layoutX="14.0" layoutY="167.0" onKeyPressed="#KeyPressed" prefHeight="17.0" prefWidth="95.0" text="Řešení" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="194.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

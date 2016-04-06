@@ -1,0 +1,37 @@
+Aplication: Bludiště V1.1.0b
+Version: V0.9.3
+Created: 0.0
+Run: 0.0
+Init: 0.463322654
+
+JavaPath: C:\Program Files\Java\jdk1.8.0_74\jre
+Java: 1.8.0_74
+OS.Arch: amd64
+OS.Name: Windows 8.1
+OS.Version: 6.3
+
+Config: CONFIG.txt
+MovingSpikesStartRound: 25
+MovingSpikesMaxSpeed: 1.0
+StartingRound: 0
+ShowPath: true
+GameMode: false
+SolveErasing: true
+TrailEraisng: true
+Steps: false
+AnimatedSpikes: true
+SlowSolving: true
+EndUnlocked: false
+SpikesEnabled: true
+DarkMaskEnabled: true
+FogMaskEnabled: true
+ColorRoad: 0x01010100
+ColorErrDebug: 0xffc0cbff
+ColorZdiDebug: 0xffa500ff
+ColorSolve: 0x505050ce
+ColorTrail: 0x00000000
+FillScreenStart: true
+
+AllocatedMemory: 98304K
+MaxMemory: 273408K
+FreeMemory: 60462K
