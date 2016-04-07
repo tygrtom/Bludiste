@@ -4,7 +4,7 @@ public class CHNGLG{
 public static String Version = "V1.1.2";
 }
 /* // <editor-fold defaultstate="collapsed" desc="CHANGELOG">
-V1.1.2 ---- GitHub Wokring; Everything Wokring;
+V1.1.2 ---- GitHub Wokring;
 V1.1.1 ---- Something;
 V1.1.0 ---- SmallSprites; DFS; DFSReversed; Spletené2; Spletené3; Free; RandomPrim; ErasableTrail; UnSolve; DFSfix; FreeB; GenerationLagFix; Breaking;
 V1.0.A ---- DeathMoney; Some Fixes;
@@ -21,11 +21,11 @@ V1.0.0 ---- První stabilní verze;
 */ // </editor-fold> 
 /* // <editor-fold defaultstate="collapsed" desc="TŘÍDY">
 Nejnovější verze tříd:
-Bludiste ----------------- V1.0.9
-CHNGLG ------------------- V1.1.1
+Bludiste ----------------- V1.1.2
+CHNGLG ------------------- V1.1.2
 BludisteController ------- V1.1.1
 Generator ---------------- V1.1.0b
-Logger ------------------- V1.1.0a
+Logger ------------------- V1.1.2
 Renderer ----------------- V1.1.1
 Stopwatch ---------------- V1.0.9
 */ // </editor-fold>
