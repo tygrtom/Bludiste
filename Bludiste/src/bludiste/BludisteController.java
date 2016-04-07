@@ -126,21 +126,16 @@ public class BludisteController implements Initializable {
     public Timeline timeLoop;
     public Timeline animLoop;
     // </editor-fold>
-       // <editor-fold defaultstate="collapsed" desc="Logger">
+       // <editor-fold defaultstate="collapsed" desc="LoggerV1">
    private Logger Log;
    String[][] Head;double CreationTime=0;double RunningTime=0;double InitializeTime=0;
    ArrayList<String> Errors=    new ArrayList<String>(0);
-   ArrayList<String[][]> Maze=  new ArrayList<String[][]>(0);
-   ArrayList<String[][]> Solve= new ArrayList<String[][]>(0);
-   public void SetLog(){Log=new Logger("Log"+CreatedTime+".txt","Logger",FSS);Log.setLog(GetLog(),1,Maze.size(),Solve.size());}
-   public String[][][] GetLog(){String[][][] Log = new String[1+Maze.size()+Solve.size()][][];Log[0]=LogSetHead();for(int i=1;i<1+Maze.size();i++){Log[i]=getArray3(Maze)[i-1];}for(int i=1+Maze.size();i<1+Maze.size()+Solve.size();i++){Log[i]=getArray3(Solve)[i-1-Maze.size()];}return Log;}
-   public void LogSetHeadSize(){Head=new String[5][];Head[0]=new String[5];Head[1]=new String[6];Head[2]=new String[21];Head[3]=new String[3];Head[4]=new String[Errors.size()];}
-   public String[][] LogSetHead(){
-       String[][] HeadS={   {"Bludiště "+CHNGLG.Version,Logger.Version,CreationTime+"",RunningTime+"",InitializeTime+""},
-                            {System.getProperty("java.home"),System.getProperty("java.version"),System.getProperty("os.arch"),System.getProperty("os.name"),System.getProperty("os.version"),System.getProperty("sun.java2d.opengl")},
-                            {ConfigFileName,IntMvngSpksRnd+"",DoubleMaxSpeed+"",IntStartingRnd+"",BoolShowPath+"",BoolGameMode+"",BoolMazaniRes+"",BoolMazaniStopy+"",BoolKroky+"",BoolAnimace+"",BoolPostupRes+"",BoolCilUnlocked+"",BoolSpikesEnabled+"",BoolDarkMask+"",BoolFogMask+"",ColorCesta.toString(),ColorErrDebug.toString(),ColorZdiDebug.toString(),ColorSolve.toString(),ColorTrail.toString(),BoolFullScream+""},
-                            {rt.totalMemory()/1024+"K",rt.maxMemory()/1024+"K",rt.freeMemory()/1024+"K"},
-                            getArray1(Errors)};return HeadS;}
+   ArrayList<String[]> Maze=  new ArrayList<String[]>(0);
+   public void SetLog(){Log=new Logger("Log"+CreatedTime+".txt",FSS);Log.setLog(GetLog());}
+   public String[] GetLog(){String[] Log = new String[];
+   for(int i=1;i<1+Maze.size();i++){Log[i]=getArray3(Maze)[i-1];}
+   return Log;}
+   
    public String[] getArray1(ArrayList<String> Array)           {String[] Arr = new String[Array.size()];for(int i =0;i<Array.size();i++){Arr[i]=Array.get(i);}return Arr;}
    public String[][] getArray2(ArrayList<String[]> Array)       {String[][] Arr = new String[Array.size()][];for(int i =0;i<Array.size();i++){Arr[i]=getArray1(getArrayL1(Array.get(i)));}return Arr;}
    public String[][][] getArray3(ArrayList<String[][]> Array)   {String[][][] Arr = new String[Array.size()][][];for(int i =0;i<Array.size();i++){Arr[i]=getArray2(getArrayL2(Array.get(i)));}return Arr;}
