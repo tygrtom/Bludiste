@@ -10,7 +10,7 @@ public class Logger {
     private final String Name = "Logger";
     private       String FSS;
     private String LOG = "";
-    public Logger(String FileName,String FSS){this.FSS=FSS;BW = getBufferedWriter(FileName);}
+    public Logger(String FileName,String FSS){this.FSS=FSS;BW = getBufferedWriter(FileName);Write(Name+LVNS+Version);}
     public void setLog(String[] Log){for(String x : Log){Write(x);}Flush();}
     private void Write(String Name){LOG+=(Name+"::");}
     private void Flush(){try(BufferedWriter bw=BW){for(String LOGs : LOG.split("::")){bw.write(LOGs);bw.newLine();}bw.flush();}catch(Exception e){}}
