@@ -1,4 +1,4 @@
-//BludisteController V1.1.1
+//BludisteController V1.1.2
 package bludiste;
 
 import java.io.BufferedReader;
@@ -126,22 +126,15 @@ public class BludisteController implements Initializable {
     public Timeline timeLoop;
     public Timeline animLoop;
     // </editor-fold>
-       // <editor-fold defaultstate="collapsed" desc="LoggerV1">
+       // <editor-fold defaultstate="collapsed" desc="Logger">
    private Logger Log;
    String[][] Head;double CreationTime=0;double RunningTime=0;double InitializeTime=0;
    ArrayList<String> Errors=    new ArrayList<String>(0);
    ArrayList<String[]> Maze=  new ArrayList<String[]>(0);
    public void SetLog(){Log=new Logger("Log"+CreatedTime+".txt",FSS);Log.setLog(GetLog());}
-   public String[] GetLog(){String[] Log = new String[];
+   public String[] GetLog(){String[] LogTXT = new String[];
    for(int i=1;i<1+Maze.size();i++){Log[i]=getArray3(Maze)[i-1];}
-   return Log;}
-   
-   public String[] getArray1(ArrayList<String> Array)           {String[] Arr = new String[Array.size()];for(int i =0;i<Array.size();i++){Arr[i]=Array.get(i);}return Arr;}
-   public String[][] getArray2(ArrayList<String[]> Array)       {String[][] Arr = new String[Array.size()][];for(int i =0;i<Array.size();i++){Arr[i]=getArray1(getArrayL1(Array.get(i)));}return Arr;}
-   public String[][][] getArray3(ArrayList<String[][]> Array)   {String[][][] Arr = new String[Array.size()][][];for(int i =0;i<Array.size();i++){Arr[i]=getArray2(getArrayL2(Array.get(i)));}return Arr;}
-   public ArrayList<String> getArrayL1(String[] Array)          {ArrayList<String> Arr = new ArrayList<>();for(int i =0;i<Array.length;i++){Arr.add(Array[i]);}return Arr;}
-   public ArrayList<String[]> getArrayL2(String[][] Array)      {ArrayList<String[]> Arr = new ArrayList<>();for(int i =0;i<Array.length;i++){Arr.add(Array[i]);}return Arr;}
-   public ArrayList<String[][]> getArrayL3(String[][][] Array)  {ArrayList<String[][]> Arr = new ArrayList<>();for(int i =0;i<Array.length;i++){Arr.add(Array[i]);}return Arr;}
+   return LogTXT;}
     // </editor-fold>
        // <editor-fold defaultstate="collapsed" desc="CONFIG">
    String       ConfigFileName;
@@ -791,4 +784,10 @@ public void Generace1(int zdi, int pX, int pY, int zX, int zY){
     }}
 }
 */ // </editor-fold>
+   public String[] getArray1(ArrayList<String> Array)           {String[] Arr = new String[Array.size()];for(int i =0;i<Array.size();i++){Arr[i]=Array.get(i);}return Arr;}
+   public String[][] getArray2(ArrayList<String[]> Array)       {String[][] Arr = new String[Array.size()][];for(int i =0;i<Array.size();i++){Arr[i]=getArray1(getArrayL1(Array.get(i)));}return Arr;}
+   public String[][][] getArray3(ArrayList<String[][]> Array)   {String[][][] Arr = new String[Array.size()][][];for(int i =0;i<Array.size();i++){Arr[i]=getArray2(getArrayL2(Array.get(i)));}return Arr;}
+   public ArrayList<String> getArrayL1(String[] Array)          {ArrayList<String> Arr = new ArrayList<>();for(int i =0;i<Array.length;i++){Arr.add(Array[i]);}return Arr;}
+   public ArrayList<String[]> getArrayL2(String[][] Array)      {ArrayList<String[]> Arr = new ArrayList<>();for(int i =0;i<Array.length;i++){Arr.add(Array[i]);}return Arr;}
+   public ArrayList<String[][]> getArrayL3(String[][][] Array)  {ArrayList<String[][]> Arr = new ArrayList<>();for(int i =0;i<Array.length;i++){Arr.add(Array[i]);}return Arr;}
 }
