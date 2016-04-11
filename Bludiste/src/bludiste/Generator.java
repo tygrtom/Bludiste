@@ -185,7 +185,7 @@ int pocetZdiKolem = 0;
         if(pole[i][j+1]==4||pole[i][j+1]==6||pole[i][j+1]==9||pole[i][j+1]==5){pocetZdiKolem++;}
         if(pole[i][j-1]==4||pole[i][j-1]==6||pole[i][j-1]==9||pole[i][j-1]==5){pocetZdiKolem++;}
 return pocetZdiKolem;}
-public void VykresliBod(int i, int j){if(Blud.BoolPostupRes){try{Thread.sleep(Blud.IntResDelay);}catch(Exception e){Blud.Errors.add("ErrorWait");}}}
+public void VykresliBod(int i, int j){if(Blud.BoolPostupRes){try{Thread.sleep(Blud.IntResDelay);}catch(Exception e){Blud.LogTXT.add("ErrorWait");}}}
 public void VykresliOkoli(int i, int j,int pol){for(int x = j-pol; x < j+pol; x++){for(int y = j-pol; y < j+pol; y++){VykresliBod(i,j);}}}
 public void startRender() {
         final Duration oneFrameAmt = Duration.millis(Blud.IntResDelay);

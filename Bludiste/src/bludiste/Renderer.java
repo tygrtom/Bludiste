@@ -89,13 +89,13 @@ public void VykresliCestaVyres(int i,int j){if(Bludiste.ColorSolve.getOpacity() 
 public void VykresliStopa(int i,int j){if(Bludiste.ColorTrail.getOpacity() != 0){
     graphicsFront.setFill(Bludiste.ColorTrail);
     graphicsFront.fillRect(i * (velikostX + mezera), j * (velikostY + mezera), velikostX, velikostY);}}
-public void VykresliCoin(int i,int j){VykresliCesta(i,j);if(!Bludiste.BoolGameMode){Bludiste.Errors.add("CoinRenderTryNotGame");}
+public void VykresliCoin(int i,int j){VykresliCesta(i,j);if(!Bludiste.BoolGameMode){Bludiste.LogTXT.add("CoinRenderTryNotGame");}
     for(Coin c : Bludiste.coiny){if(c.isOnCoord(i, j)){
     graphicsFront.drawImage(c.img,i * (velikostX + mezera), j * (velikostY + mezera), velikostX, velikostY);
     graphicsFront.setFont(Font.font("Purisa", velikostY/2));graphicsFront.setFill(Color.BLACK);graphicsFront.setStroke(Color.BLACK);
     graphicsFront.fillText(""+c.hodnota, (i+0.1) * (velikostX + mezera),  (j+0.9) * (velikostY + mezera), velikostX-1);
     }}}
-public void VykresliSpikes(int i,int j){if(!Bludiste.BoolGameMode){Bludiste.Errors.add("SpikesRenderTryNotGame");}
+public void VykresliSpikes(int i,int j){if(!Bludiste.BoolGameMode){Bludiste.LogTXT.add("SpikesRenderTryNotGame");}
 if(Bludiste.Vyreseno){VykresliCestaVyres(i,j);}else{VykresliCesta(i,j);}
 graphicsWall.drawImage(BludisteController.Spikes[(int)Bludiste.poleTrans[i][j]],i * (velikostX + mezera), j * (velikostY + mezera), velikostX, velikostY);
 }

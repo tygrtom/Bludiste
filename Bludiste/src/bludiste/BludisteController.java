@@ -127,14 +127,42 @@ public class BludisteController implements Initializable {
     public Timeline animLoop;
     // </editor-fold>
        // <editor-fold defaultstate="collapsed" desc="Logger">
-   private Logger Log;
-   String[][] Head;double CreationTime=0;double RunningTime=0;double InitializeTime=0;
-   ArrayList<String> Errors=    new ArrayList<String>(0);
-   ArrayList<String[]> Maze=  new ArrayList<String[]>(0);
-   public void SetLog(){Log=new Logger("Log"+CreatedTime+".txt",FSS);Log.setLog(GetLog());}
-   public String[] GetLog(){String[] LogTXT = new String[];
-   for(int i=1;i<1+Maze.size();i++){Log[i]=getArray3(Maze)[i-1];}
-   return LogTXT;}
+   private Logger Log;ArrayList<String> LogTXT = new ArrayList<>();
+   double CreationTime=0;double RunningTime=0;double InitializeTime=0;
+   public void SetLog(){LogConfig();
+       Log=new Logger("Log"+CreatedTime+".txt",FSS);Log.setLog(getArray1(LogTXT));}
+   public void LogMaze(){
+    LogTXT.add("");
+    LogTXT.add("");
+    LogTXT.add("");
+    LogTXT.add("");
+}
+   public void LogConfig(){
+    LogTXT.add(""+ConfigFileName);
+    LogTXT.add(""+IntMvngSpksRnd);
+    LogTXT.add(""+DoubleMaxSpeed);
+    LogTXT.add(""+IntStartingRnd);
+    LogTXT.add(""+BoolShowPath);
+    LogTXT.add(""+BoolGameMode);
+    LogTXT.add(""+BoolMazaniRes);
+    LogTXT.add(""+BoolMazaniStopy);
+    LogTXT.add(""+BoolKroky);
+    LogTXT.add(""+BoolPostupRes);
+    LogTXT.add(""+BoolAnimace);
+    LogTXT.add(""+BoolCilUnlocked);
+    LogTXT.add(""+BoolDarkMask);
+    LogTXT.add(""+BoolFogMask);
+    LogTXT.add(""+BoolSpikesEnabled);
+    LogTXT.add(""+ColorCesta);
+    LogTXT.add(""+ColorErrDebug);
+    LogTXT.add(""+ColorZdiDebug);
+    LogTXT.add(""+ColorSolve);
+    LogTXT.add(""+ColorTrail);
+    LogTXT.add(""+BoolFullScream);
+    LogTXT.add(""+BoolSmallSprites);
+    LogTXT.add(""+BoolErasableTrail);
+    LogTXT.add(""+IntResDelay);
+}
     // </editor-fold>
        // <editor-fold defaultstate="collapsed" desc="CONFIG">
    String       ConfigFileName;
@@ -203,7 +231,7 @@ BoolFullScream    = Boolean.parseBoolean(findConfigString("FullScreenStart"));li
 BoolLogOnExit     = Boolean.parseBoolean(findConfigString("LogOnExit"));line++;
 BoolSmallSprites  = Boolean.parseBoolean(findConfigString("SmallSprites"));line++;
 BoolErasableTrail = Boolean.parseBoolean(findConfigString("ErasableTrail"));line++;
-}catch (Exception e){Errors.add("ConfigReadError"+line);showMessageBox("Chyba při čtení z Configu. Err: "+line);}
+}catch (Exception e){LogTXT.add("ConfigReadError"+line);showMessageBox("Chyba při čtení z Configu. Err: "+line);}
 }
 public BufferedReader getConfigBR(){
 int i = 0;
@@ -211,7 +239,7 @@ do{int j = 0;do{
         if(getBufferedReader(SpriteFilesTry[i],ConfigTry[j]) != null){
         ConfigFileName=ConfigTry[j];return getBufferedReader(SpriteFilesTry[i],ConfigTry[j]);}
 j++;}while(j < ConfigTry.length);i++;}while(i < SpriteFilesTry.length);
-Errors.add("ConfigBRnull");return null;}
+LogTXT.add("ConfigBRnull");return null;}
 public String findConfigString(String nazev) throws IOException{
     String ConfString = null;BufferedReader br = getConfigBR();String s;
         while ((s = br.readLine()) != null)
@@ -319,7 +347,7 @@ public void PanelKeyPressed(KeyEvent evt) {
     CBgenerace.getItems().addAll("Perfect","Spletené(U/20)","Spletené(1)","DFS","DFSR","Free","RandomPrim","Spletené2","FreeB" );CBgenerace.getSelectionModel().selectFirst();
     CBreseni.getItems().addAll("4xDEF","DEF","DEF2","Wave");CBreseni.getSelectionModel().selectFirst();
     Bludiste.stage.setMaximized(BoolFullScream);
-    InitializeTime=perf.measure();perf.StopAll();
+    InitializeTime=perf.measure();perf.StopAll();LogTXT.add("Init:"+InitializeTime);
     }    
 //--------------------------------------------------------------------------------------------------------------------------------------
 public void runApp() {
@@ -329,12 +357,12 @@ public void runApp() {
     if(generator!=null){generator=null;}
     generator = new Generator(typG,pole,this,poleX,poleY,renderer);generator.start();
     synchronized(this){while(!generator.done){
-        try {this.wait();} catch (Exception ex) {Errors.add("ErrorWaitRun");}}}
+        try {this.wait();} catch (Exception ex) {LogTXT.add("ErrorWaitRun");}}}
     
     if(BoolGameMode){Naplnit();}else{NaplnitNotGame();}
 }
 // 1-cesta,2-player,3-cil,4-zed,5-zed2,6-reseni,7-stopa,8-penize,9-spikes,10-chyba
-public void Generuj(byte[][] pole){this.pole = pole;if(BoolGameMode){Naplnit();}else{NaplnitNotGame();}}
+public void Generuj(byte[][] pole){this.pole = pole;if(BoolGameMode){Naplnit();}else{NaplnitNotGame();}LogMaze();}
 public void NaplnitNotGame(){
 /*Player, cíl===================================================================*/
 EndSpawned = false;Vyreseno=false;
@@ -511,7 +539,7 @@ public int[][] WaveChange(byte[][] pole1,int[][] pole3,int val){
 public ArrayList<Coord> getWavePath(int[][] pole3,int val){
     ArrayList<Coord> CkP = new ArrayList<>(val+1);Coord c=null;
     for (int j = 0; j < pole3[0].length; j++){for (int i = 0; i < pole3.length; i++){if(pole3[i][j]==val){c=new Coord(i,j);}}}
-    if(c==null){Errors.add("GetWavePathNull");}CkP.add(c);
+    if(c==null){LogTXT.add("GetWavePathNull");}CkP.add(c);
     while(pole3[c.x][c.y]!=1){
         if(pole3[c.x+1][c.y]==pole3[c.x][c.y]-1){CkP.add(c);c=new Coord(c.x+1,c.y);}else
         if(pole3[c.x-1][c.y]==pole3[c.x][c.y]-1){CkP.add(c);c=new Coord(c.x-1,c.y);}else
@@ -588,8 +616,8 @@ do{
     i++;
 }while(i < SpriteFilesTry.length);
 }
-if(!(DarkMask != null &&FogMask != null &&Spikes != null &&Walls != null &&Backgrounds != null &&Players != null &&Ends != null &&CoinCoins != null &&CoinStars != null)){Errors.add("AllSpritesNull");}
-if(!(DarkMask != null ||FogMask != null ||Spikes != null ||Walls != null ||Backgrounds != null ||Players != null ||Ends != null ||CoinCoins != null ||CoinStars != null)){Errors.add("OneSpritesNull");}
+if(!(DarkMask != null &&FogMask != null &&Spikes != null &&Walls != null &&Backgrounds != null &&Players != null &&Ends != null &&CoinCoins != null &&CoinStars != null)){LogTXT.add("AllSpritesNull");}
+if(!(DarkMask != null ||FogMask != null ||Spikes != null ||Walls != null ||Backgrounds != null ||Players != null ||Ends != null ||CoinCoins != null ||CoinStars != null)){LogTXT.add("OneSpritesNull");}
 }
 public static Image getCoinImage(int hodnota){
 if(hodnota <=3  ){return CoinCoins[5];}else
@@ -698,17 +726,6 @@ for(int i = 0; i < YspikesAnim.length;i++){
 pole[XspikesAnim[i]][YspikesAnim[i]]=(byte)PuvodnispikesAnim[i];}
 }
 // </editor-fold>
-public void LogMaze(){String Cvalues="";for(Coin c:coiny){Cvalues+=c.hodnota;}
-    String[][] maze = {{ID+"",poleX+":"+poleY,velikostX+":"+velikostY,mezera+"",Kol+""},
-                       {typR+"",""},{coiny.length+"",Cvalues},
-                       {player.coord.x+":"+player.coord.y},
-                       {SpikesCount+""},
-                       {DarkMask+"",FogMask+""},
-                       {"","",""},
-                       {""},
-                       {"","","","","","",""}};
-    Maze.add(maze);
-}
 public class Player {
 public Coord coord;public int kroky;public byte trail;public boolean breaking = false;
 public Player(Coord pp){

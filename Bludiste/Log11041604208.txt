@@ -1,0 +1,8 @@
+Logger: V0.9.9
+C:\Program Files\Java\jdk1.8.0_74\jre
+1.8.0_74
+amd64
+Windows 8.1
+6.3
+True
+Init:0.016031279
