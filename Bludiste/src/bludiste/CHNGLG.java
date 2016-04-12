@@ -4,7 +4,7 @@ public class CHNGLG{
 public static String Version = "V1.1.2";
 }
 /* // <editor-fold defaultstate="collapsed" desc="CHANGELOG">
-V1.1.2 ---- GitHub Wokring;
+V1.1.2 ---- GitHub Wokring; Logger Rework;
 V1.1.1 ---- Something;
 V1.1.0 ---- SmallSprites; DFS; DFSReversed; Spletené2; Spletené3; Free; RandomPrim; ErasableTrail; UnSolve; DFSfix; FreeB; GenerationLagFix; Breaking;
 V1.0.A ---- DeathMoney; Some Fixes;
@@ -34,7 +34,6 @@ Enemies.
 Coord all.
 More Algorithms.
 .Map.
-UnivLogSimple.
 */ // </editor-fold>
 
 /* // <editor-fold defaultstate="collapsed" desc="">
