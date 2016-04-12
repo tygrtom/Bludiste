@@ -42,7 +42,9 @@ public class BludisteController implements Initializable {
        // <editor-fold defaultstate="collapsed" desc="Promenne">
     // <editor-fold defaultstate="collapsed" desc="Components">
     @FXML
-    public Button Generuj;    
+    public Button Generuj;  
+    @FXML
+    public Button Changelog;  
     @FXML
     public TextField TFpoleX;
     @FXML
@@ -304,6 +306,8 @@ public void GenerujAction(){
         if(poleX > 1500 || poleY > 1500 || velikostX > 1500 || velikostY > 1500 || mezera > 1500 || sirkaX > 2000 || vyskaY > 2000 ){AllNum = false;}
         if(AllNum){runApp();}
 }
+@FXML
+public void ChangelogAction(){showMessageBox(CHNGLG.CHANGELOG,"CHNGLG "+CHNGLG.Version,AlertType.INFORMATION,new Coord(400,800));}
 @FXML
 public void KeyPressed(KeyEvent evt) {                            
         if(evt.getCode() == KeyCode.ESCAPE){Platform.exit();}
@@ -676,6 +680,30 @@ Alert alert = new Alert(AlertType.INFORMATION);
 alert.setTitle("InfoBox "+CHNGLG.Version);
 alert.setHeaderText(null);
 alert.setContentText(msg);
+alert.showAndWait();
+}
+public void showMessageBox(String msg,String title){
+Alert alert = new Alert(AlertType.INFORMATION);
+alert.setTitle(title);
+alert.setHeaderText(null);
+alert.setContentText(msg);
+alert.showAndWait();
+}
+public void showMessageBox(String msg,String title,AlertType AT){
+Alert alert = new Alert(AT);
+alert.setTitle(title);
+alert.setHeaderText(null);
+alert.setContentText(msg);
+alert.showAndWait();
+}
+public void showMessageBox(String msg,String title,AlertType AT,Coord xySize){
+Alert alert = new Alert(AT);
+alert.setResizable(true);
+alert.setTitle(title);
+alert.setHeaderText(null);
+alert.setContentText(msg);
+alert.setWidth(xySize.x);
+alert.setHeight(xySize.y);
 alert.showAndWait();
 }
 
