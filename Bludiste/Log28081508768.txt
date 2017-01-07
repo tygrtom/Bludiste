@@ -1,0 +1,32 @@
+Logger: V0.9.9
+C:\Program Files\Java\jdk1.8.0_74\jre
+1.8.0_74
+amd64
+Windows 8.1
+6.3
+True
+Init:0.013025916
+CONFIG.txt
+25
+1.0
+0
+false
+false
+true
+true
+false
+false
+true
+false
+true
+true
+true
+0x01010100
+0xffc0cbff
+0xffa500ff
+0x606060c0
+0x00000000
+true
+true
+true
+20
